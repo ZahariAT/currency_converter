@@ -1,0 +1,27 @@
+{% block content %}
+
+<h1>Foreign exchange rates of the Bulgarian lev </h1>
+
+<ul>
+	 <li>Name - To - From  </li>
+{% for obj in object_list %}
+	{% if obj.name != 'BGN' %}
+     	<li> {{ obj.name }} - {{ obj.toBGN }} - {{ obj.fromBGN }}</li>
+     {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}
+{% block content2 %}
+
+<form method='POST'>{% csrf_token %}
+	<table>
+      {{ form.as_table }}
+    </table>
+	<input type="submit" name="save" placeholder="Submit">
+	{% if result != None %}
+		{{result}}
+	{% endif %}
+</form>
+
+{% endblock %}
