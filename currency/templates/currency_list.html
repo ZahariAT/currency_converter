@@ -3,10 +3,10 @@
 <h1>Foreign exchange rates of the Bulgarian lev </h1>
 
 <ul>
-	 <li>Name - To - From  </li>
+	 <li>Name - Amount - To - From  </li>
 {% for obj in object_list %}
 	{% if obj.name != 'BGN' %}
-     	<li> {{ obj.name }} - {{ obj.toBGN }} - {{ obj.fromBGN }}</li>
+     	<li> {{ obj.name }} - {{ obj.amount }} - {{ obj.toBGN }} - {{ obj.fromBGN }}</li>
      {% endif %}
 {% endfor %}
 </ul>
