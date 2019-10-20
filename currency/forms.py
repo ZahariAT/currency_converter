@@ -16,5 +16,5 @@ class ConverterForm(forms.Form):
         t = float(self.cleaned_data['toCurr'].toBGN)
         s = float(self.cleaned_data['sum'])
 
-        return round((s/f)*t, 2)
+        return round((s/t)*f, 2)
 

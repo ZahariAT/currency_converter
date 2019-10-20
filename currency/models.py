@@ -14,3 +14,13 @@ class Currency(models.Model):
 
     def fromBGN(self):
         return round(1/float(self.toBGN), 2)
+
+
+    # fromBGN = models.DecimalField(max_digits=5, decimal_places=2)
+
+    # def _fromBGN(self):
+    #     return round(1/float(self.toBGN), 2)
+
+    # def save(self, *args, **kwargs):
+    #     self.fromBGN = self._fromBGN()
+    #     super(Currency, self).save(*args, **kwargs)
