@@ -13,8 +13,12 @@ class ConverterForm(forms.Form): #TODO make it a model form
 
     def convert(self):
         f = float(self.cleaned_data['fromCurr'].toBGN)
+        f_a = float(self.cleaned_data['fromCurr'].amount)
         t = float(self.cleaned_data['toCurr'].toBGN)
-        s = float(self.cleaned_data['amount'])
+        t_a = float(self.cleaned_data['toCurr'].amount)
+        a = float(self.cleaned_data['amount'])
+        f = f/f_a
+        t = t/t_a
 
-        return round((s/t)*f, 4)
+        return round((a/t)*f, 4)
 

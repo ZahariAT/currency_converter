@@ -34,9 +34,9 @@ class Command(BaseCommand):
         if len(tr_list) == 0:
             return'Content not found!'
 
+        Currency(name='BGN', toBGN='1', amount='1').save()
         for tr in tr_list[1:-1]:
             td_list = tr.find_all('td')
            # Currency(**{k:td.text for td in td_list[1:4] for k in ('name', 'amount' 'toBGN')}).save()
             Currency(name=td_list[1].text, toBGN=td_list[3].text, amount=td_list[2].text).save()
-
         print('Done!')
