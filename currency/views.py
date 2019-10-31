@@ -23,23 +23,10 @@ class CurrencyListView(View):
         form = ConverterForm(request.POST)
         if form.is_valid():
             result = form.convert()
+            #form = ConverterForm()
         context = {
             'form': form,
             'result': result,
             'object_list': self.queryset
         }
         return render(request, self.template_name, context)
-
-# def calculator_view(request, *args,**kwargs):
-#     form = ConverterForm()
-#     result = None
-#     if request.method == 'POST':
-#         form = ConverterForm(request.POST)
-#         if form.is_valid():
-#             result = form.convert()
-#     context = {
-#         'form': form,
-#         'result': result,
-#         'object_list': Currency.objects.all()
-#     }
-#     return render(request, 'currency_list.html', context)

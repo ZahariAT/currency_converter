@@ -9,7 +9,7 @@ class ConverterForm(forms.Form): #TODO make it a model form
     toCurr   = forms.ModelChoiceField(label='To', 
                                     queryset=Currency.objects.all(),
                                     empty_label="Select Currency")
-    amount = forms.DecimalField(min_value = 0.1, initial=1)
+    amount   = forms.DecimalField(min_value = 0.1, initial=1)
 
     def convert(self):
         f = float(self.cleaned_data['fromCurr'].toBGN)
